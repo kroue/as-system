@@ -67,7 +67,7 @@ class VerifyEmailView(APIView):
             return Response({'error': 'Email and verification code are required.'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            user = User.objects.get(email=emailq)
+            user = User.objects.get(email=email)
             if user.userprofile.verification_code == verification_code:
                 user.userprofile.verification_code = None  # Clear the verification code
                 user.userprofile.save()
@@ -76,3 +76,9 @@ class VerifyEmailView(APIView):
                 return Response({'error': 'Invalid verification code.'}, status=status.HTTP_400_BAD_REQUEST)
         except User.DoesNotExist:
             return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+class SessionCheckView(APIView):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return Response({'authenticated': True, 'email': request.user.email, 'name': request.user.get_full_name(), 'id': request.user.id})
+        return Response({'authenticated': False}, status=401)

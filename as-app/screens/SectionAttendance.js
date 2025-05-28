@@ -8,7 +8,7 @@ export default function SectionAttendanceScreen({ navigation, route }) {
 
   useEffect(() => {
     if (!teacherId) return;
-    fetch(`http://192.168.1.36/as-system/api/sections_app.php?teacher_id=${teacherId}`)
+    fetch(`http://192.168.1.19/as-system/api/sections_app.php?teacher_id=${teacherId}`)
       .then(res => res.json())
       .then(data => setSections(data));
   }, [teacherId]);

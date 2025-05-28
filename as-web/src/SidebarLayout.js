@@ -54,6 +54,19 @@ export default function SidebarLayout({ children }) {
     },
   };
 
+  const handleLogout = async () => {
+    try {
+      await fetch('http://localhost:8000/accounts/logout/', {
+        method: 'POST',
+        credentials: 'include', // Important for session cookies
+      });
+    } catch (e) {
+      // Optionally handle error
+    }
+    localStorage.removeItem('userEmail');
+    navigate('/');
+  };
+
   return (
     <div style={styles.container}>
       {/* Sidebar */}
@@ -92,10 +105,7 @@ export default function SidebarLayout({ children }) {
         </div>
         <button
           style={styles.logoutButton}
-          onClick={() => {
-            localStorage.removeItem('userEmail');
-            navigate('/');
-          }}
+          onClick={handleLogout}
         >
           Logout
         </button>

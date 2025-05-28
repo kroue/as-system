@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-native-calendars": "^1.1312.0",
     "react-native-vector-icons": "^10.2.0"
   }
 }

@@ -6,7 +6,7 @@ export default function StudentAttendanceHistory({ route }) {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    fetch(`http://192.168.1.36/as-system/api/attendance.php?student_id=${studentId}&section_id=${sectionId}`)
+    fetch(`http://192.168.1.19/as-system/api/attendance.php?student_id=${studentId}&section_id=${sectionId}`)
       .then(res => res.json())
       .then(data => setRecords(data));
   }, [studentId, sectionId]);

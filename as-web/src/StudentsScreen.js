@@ -89,8 +89,8 @@ export default function StudentsScreen() {
     setStudentID(student.student_id);
     setFullName(student.full_name);
     setGender(student.gender);
-    setSelectedCourse(student.course_id);
-    setSelectedSection(student.section_id);
+    setSelectedCourse(Number(student.course_id));
+    setSelectedSection(Number(student.section_id));
     setPhoneNumber(student.phone_number);
     setEditingStudent(student);
   };
@@ -273,7 +273,7 @@ export default function StudentsScreen() {
           >
             <option value="">Select a Section</option>
             {sections
-              .filter(section => section.course_id === selectedCourse)
+              .filter(section => Number(section.course_id) === selectedCourse)
               .map(section => (
                 <option key={section.id} value={section.id}>
                   {section.name}

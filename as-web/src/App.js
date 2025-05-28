@@ -11,7 +11,6 @@ import TeachersScreen from './TeachersScreen'; // Import TeachersScreen
 import SidebarLayout from './SidebarLayout';
 
 export default function App() {
-  localStorage.removeItem('userEmail');
   
   return (
     <Router>

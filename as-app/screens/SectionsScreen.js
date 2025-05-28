@@ -34,7 +34,7 @@ export default function SectionsScreen({ navigation }) {
     }
 
     try {
-      const response = await fetch('http://192.168.1.36/as-system/api/sections.php', {
+      const response = await fetch('http://192.168.1.19/as-system/api/sections.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: sectionName, course_id: selectedCourse }),

@@ -13,7 +13,7 @@ export default function LoginScreen({ navigation }) {
     }
 
     try {
-      const response = await fetch('http://192.168.1.36/as-system/api/teacher_login.php', {
+      const response = await fetch('http://192.168.1.19/as-system/api/teacher_login.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
